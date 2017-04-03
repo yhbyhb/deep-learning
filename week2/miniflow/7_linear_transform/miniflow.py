@@ -50,12 +50,11 @@ class Linear(Node):
 
         Your code goes here!
         """
-        inputs = self.inbound_nodes[0].value
-        weights = self.inbound_nodes[1].value
-        bias = self.inbound_nodes[2].value
+        X = self.inbound_nodes[0].value
+        W = self.inbound_nodes[1].value
+        b = self.inbound_nodes[2].value
         
-        self.value = np.tile(bias, (inputs.shape[0], 1))
-        self.value += np.dot(inputs, weights)
+        self.value = np.dot(X, W) + b
 
 
 def topological_sort(feed_dict):
