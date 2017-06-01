@@ -12239,7 +12239,7 @@ Default GPU Device: /gpu:0
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
     <span class="n">lstm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">)</span>
-    <span class="n">num_layers</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">num_layers</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">MultiRNNCell</span><span class="p">([</span><span class="n">lstm</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_layers</span><span class="p">)</span>
     <span class="n">initial_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="s1">&#39;initial_state&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cell</span><span class="p">,</span> <span class="n">initial_state</span>
@@ -12585,19 +12585,19 @@ Default GPU Device: /gpu:0
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of Epochs</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="c1"># Batch Size</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
 <span class="c1"># RNN Size</span>
 <span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="c1"># Embedding Dimension Size</span>
-<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># Sequence Length</span>
-<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="c1"># Learning Rate</span>
 <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="c1"># Show stats for every n number of batches</span>
-<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">350</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
@@ -12721,106 +12721,56 @@ Default GPU Device: /gpu:0
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Epoch   0 Batch    0/5   train_loss = 8.822
-Epoch  10 Batch    0/5   train_loss = 6.043
-Epoch  20 Batch    0/5   train_loss = 5.982
-Epoch  30 Batch    0/5   train_loss = 5.861
-Epoch  40 Batch    0/5   train_loss = 5.616
-Epoch  50 Batch    0/5   train_loss = 5.396
-Epoch  60 Batch    0/5   train_loss = 5.201
-Epoch  70 Batch    0/5   train_loss = 5.014
-Epoch  80 Batch    0/5   train_loss = 4.834
-Epoch  90 Batch    0/5   train_loss = 4.654
-Epoch 100 Batch    0/5   train_loss = 4.497
-Epoch 110 Batch    0/5   train_loss = 4.354
-Epoch 120 Batch    0/5   train_loss = 4.224
-Epoch 130 Batch    0/5   train_loss = 4.105
-Epoch 140 Batch    0/5   train_loss = 3.993
-Epoch 150 Batch    0/5   train_loss = 3.884
-Epoch 160 Batch    0/5   train_loss = 3.778
-Epoch 170 Batch    0/5   train_loss = 3.676
-Epoch 180 Batch    0/5   train_loss = 3.579
-Epoch 190 Batch    0/5   train_loss = 3.488
-Epoch 200 Batch    0/5   train_loss = 3.388
-Epoch 210 Batch    0/5   train_loss = 3.303
-Epoch 220 Batch    0/5   train_loss = 3.216
-Epoch 230 Batch    0/5   train_loss = 3.133
-Epoch 240 Batch    0/5   train_loss = 3.054
-Epoch 250 Batch    0/5   train_loss = 2.979
-Epoch 260 Batch    0/5   train_loss = 2.902
-Epoch 270 Batch    0/5   train_loss = 2.827
-Epoch 280 Batch    0/5   train_loss = 2.756
-Epoch 290 Batch    0/5   train_loss = 2.687
-Epoch 300 Batch    0/5   train_loss = 2.620
-Epoch 310 Batch    0/5   train_loss = 2.547
-Epoch 320 Batch    0/5   train_loss = 2.479
-Epoch 330 Batch    0/5   train_loss = 2.419
-Epoch 340 Batch    0/5   train_loss = 2.350
-Epoch 350 Batch    0/5   train_loss = 2.301
-Epoch 360 Batch    0/5   train_loss = 2.225
-Epoch 370 Batch    0/5   train_loss = 2.164
-Epoch 380 Batch    0/5   train_loss = 2.112
-Epoch 390 Batch    0/5   train_loss = 2.053
-Epoch 400 Batch    0/5   train_loss = 2.013
-Epoch 410 Batch    0/5   train_loss = 1.939
-Epoch 420 Batch    0/5   train_loss = 1.893
-Epoch 430 Batch    0/5   train_loss = 1.835
-Epoch 440 Batch    0/5   train_loss = 1.790
-Epoch 450 Batch    0/5   train_loss = 1.736
-Epoch 460 Batch    0/5   train_loss = 1.698
-Epoch 470 Batch    0/5   train_loss = 1.642
-Epoch 480 Batch    0/5   train_loss = 1.592
-Epoch 490 Batch    0/5   train_loss = 1.554
-Epoch 500 Batch    0/5   train_loss = 1.504
-Epoch 510 Batch    0/5   train_loss = 1.465
-Epoch 520 Batch    0/5   train_loss = 1.413
-Epoch 530 Batch    0/5   train_loss = 1.375
-Epoch 540 Batch    0/5   train_loss = 1.331
-Epoch 550 Batch    0/5   train_loss = 1.292
-Epoch 560 Batch    0/5   train_loss = 1.247
-Epoch 570 Batch    0/5   train_loss = 1.233
-Epoch 580 Batch    0/5   train_loss = 1.173
-Epoch 590 Batch    0/5   train_loss = 1.144
-Epoch 600 Batch    0/5   train_loss = 1.098
-Epoch 610 Batch    0/5   train_loss = 1.066
-Epoch 620 Batch    0/5   train_loss = 1.036
-Epoch 630 Batch    0/5   train_loss = 0.999
-Epoch 640 Batch    0/5   train_loss = 0.985
-Epoch 650 Batch    0/5   train_loss = 0.939
-Epoch 660 Batch    0/5   train_loss = 0.899
-Epoch 670 Batch    0/5   train_loss = 0.869
-Epoch 680 Batch    0/5   train_loss = 0.853
-Epoch 690 Batch    0/5   train_loss = 0.809
-Epoch 700 Batch    0/5   train_loss = 0.816
-Epoch 710 Batch    0/5   train_loss = 0.756
-Epoch 720 Batch    0/5   train_loss = 0.729
-Epoch 730 Batch    0/5   train_loss = 0.727
-Epoch 740 Batch    0/5   train_loss = 0.679
-Epoch 750 Batch    0/5   train_loss = 0.662
-Epoch 760 Batch    0/5   train_loss = 0.646
-Epoch 770 Batch    0/5   train_loss = 0.615
-Epoch 780 Batch    0/5   train_loss = 0.596
-Epoch 790 Batch    0/5   train_loss = 0.571
-Epoch 800 Batch    0/5   train_loss = 0.545
-Epoch 810 Batch    0/5   train_loss = 0.556
-Epoch 820 Batch    0/5   train_loss = 0.504
-Epoch 830 Batch    0/5   train_loss = 0.483
-Epoch 840 Batch    0/5   train_loss = 0.473
-Epoch 850 Batch    0/5   train_loss = 0.454
-Epoch 860 Batch    0/5   train_loss = 0.437
-Epoch 870 Batch    0/5   train_loss = 0.415
-Epoch 880 Batch    0/5   train_loss = 0.401
-Epoch 890 Batch    0/5   train_loss = 0.385
-Epoch 900 Batch    0/5   train_loss = 0.375
-Epoch 910 Batch    0/5   train_loss = 0.349
-Epoch 920 Batch    0/5   train_loss = 0.335
-Epoch 930 Batch    0/5   train_loss = 0.322
-Epoch 940 Batch    0/5   train_loss = 0.326
-Epoch 950 Batch    0/5   train_loss = 0.292
-Epoch 960 Batch    0/5   train_loss = 0.280
-Epoch 970 Batch    0/5   train_loss = 0.297
-Epoch 980 Batch    0/5   train_loss = 0.260
-Epoch 990 Batch    0/5   train_loss = 0.244
+<pre>Epoch   0 Batch    0/35   train_loss = 8.821
+Epoch  10 Batch    0/35   train_loss = 5.323
+Epoch  20 Batch    0/35   train_loss = 4.440
+Epoch  30 Batch    0/35   train_loss = 3.848
+Epoch  40 Batch    0/35   train_loss = 3.200
+Epoch  50 Batch    0/35   train_loss = 2.595
+Epoch  60 Batch    0/35   train_loss = 2.161
+Epoch  70 Batch    0/35   train_loss = 1.535
+Epoch  80 Batch    0/35   train_loss = 1.129
+Epoch  90 Batch    0/35   train_loss = 0.853
+Epoch 100 Batch    0/35   train_loss = 0.719
+Epoch 110 Batch    0/35   train_loss = 0.494
+Epoch 120 Batch    0/35   train_loss = 0.371
+Epoch 130 Batch    0/35   train_loss = 0.304
+Epoch 140 Batch    0/35   train_loss = 0.288
+Epoch 150 Batch    0/35   train_loss = 0.257
+Epoch 160 Batch    0/35   train_loss = 0.247
+Epoch 170 Batch    0/35   train_loss = 0.235
+Epoch 180 Batch    0/35   train_loss = 0.233
+Epoch 190 Batch    0/35   train_loss = 0.229
+Epoch 200 Batch    0/35   train_loss = 0.226
+Epoch 210 Batch    0/35   train_loss = 0.224
+Epoch 220 Batch    0/35   train_loss = 0.224
+Epoch 230 Batch    0/35   train_loss = 0.235
+Epoch 240 Batch    0/35   train_loss = 0.226
+Epoch 250 Batch    0/35   train_loss = 0.222
+Epoch 260 Batch    0/35   train_loss = 0.221
+Epoch 270 Batch    0/35   train_loss = 0.220
+Epoch 280 Batch    0/35   train_loss = 0.220
+Epoch 290 Batch    0/35   train_loss = 0.219
+Epoch 300 Batch    0/35   train_loss = 0.219
+Epoch 310 Batch    0/35   train_loss = 0.218
+Epoch 320 Batch    0/35   train_loss = 0.218
+Epoch 330 Batch    0/35   train_loss = 0.218
+Epoch 340 Batch    0/35   train_loss = 0.217
+Epoch 350 Batch    0/35   train_loss = 0.217
+Epoch 360 Batch    0/35   train_loss = 0.217
+Epoch 370 Batch    0/35   train_loss = 0.217
+Epoch 380 Batch    0/35   train_loss = 0.216
+Epoch 390 Batch    0/35   train_loss = 0.216
+Epoch 400 Batch    0/35   train_loss = 0.216
+Epoch 410 Batch    0/35   train_loss = 0.239
+Epoch 420 Batch    0/35   train_loss = 0.217
+Epoch 430 Batch    0/35   train_loss = 0.216
+Epoch 440 Batch    0/35   train_loss = 0.216
+Epoch 450 Batch    0/35   train_loss = 0.215
+Epoch 460 Batch    0/35   train_loss = 0.215
+Epoch 470 Batch    0/35   train_loss = 0.215
+Epoch 480 Batch    0/35   train_loss = 0.215
+Epoch 490 Batch    0/35   train_loss = 0.215
 Model Trained and Saved
 </pre>
 </div>
@@ -12975,7 +12925,8 @@ Model Trained and Saved
 <span class="sd">    :return: String of the predicted word</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
-    <span class="k">return</span> <span class="n">int_to_vocab</span><span class="p">[</span><span class="n">probabilities</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">int_to_vocab</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probabilities</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">int_to_vocab</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -13078,19 +13029,28 @@ Model Trained and Saved
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>moe_szyslak: i don&#39;t know. everything crappy about this place they like to live of the human garbage otherwise known as they as.
-moe_szyslak: well, if i look like a dog like a job, i wouldn&#39;t drink that.
-homer_simpson:(big smile, stagy) can&#39;t someone else do it?
-moe_szyslak: well, i gotta be honest with you, uh, tommy tune.
-homer_simpson:(confident) i&#39;ll see your fifty cents and raise you one dollar.
-artie_ziff: well, i&#39;m not gonna let anything happen to my best friend.
-moe_szyslak: hey, thanks.
-moe_szyslak: now, let&#39;s give &#39;em out of this?
-barney_gumble: no, i know, you&#39;re kind of sexy.(pause noise, then) beep! beep!
-moe_szyslak: and now, i want you to meet the guy i did the time.
-lenny:(carl voice) hey, get out there, homer. we got someone else comin&#39; in.
-seymour_skinner: this is w-a-3-q-i-zed. do you read me?
-agnes_skinner: seymour! isn&#39;t it about that i
+<pre>moe_szyslak:(gets idea) actually homer...
+homer_simpson:(eyes wide, tell it on me.
+
+
+moe_szyslak: hey, where&#39;s your daughter, moe?
+moe_szyslak: aw, that&#39;s hello. we can share some out.
+homer_simpson: i&#39;m tellin&#39; ya, how we can us with your name will make best drink for a woman.
+moe_szyslak:(into phone) usually right, but i&#39;m skydiving, elmer bar /...(belch)
+
+
+lenny_leonard: if it was my ma laugh of my money.
+moe_szyslak: oh, i could someone in a drink?
+moe_szyslak: what&#39;s the kind of time that would give her back, and you made to make this smell.&#34;
+moe_szyslak:(offended, shotgun noise) dad, they show hurt me) she gave me something!
+homer_simpson: i&#39;m not very bad.
+moe_szyslak: yeah. krusty, moe.
+
+
+homer_simpson:(moan) i wish my friend!
+
+
+homer_simpson: barney, well you really tell me! and that&#39;ll hear or name!
 </pre>
 </div>
 </div>
@@ -13104,7 +13064,7 @@ agnes_skinner: seymour! isn&#39;t it about that i
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-TV-Script-is-Nonsensical">The TV Script is Nonsensical<a class="anchor-link" href="#The-TV-Script-is-Nonsensical">&#182;</a></h1><p>It's ok if the TV script doesn't make any sense.  We trained on less than a megabyte of text.  In order to get good results, you'll have to use a smaller vocabulary or get more data.  Luckly there's more data!  As we mentioned in the begging of this project, this is a subset of <a href="https://www.kaggle.com/wcukierski/the-simpsons-by-the-data">another dataset</a>.  We didn't have you train on all the data, because that would take too long.  However, you are free to train your neural network on all the data.  After you complete the project, of course.</p>
+<h5 id="The-TV-Script-is-Nonsensical">The TV Script is Nonsensical<a class="anchor-link" href="#The-TV-Script-is-Nonsensical">&#182;</a></h5><p>It's ok if the TV script doesn't make any sense.  We trained on less than a megabyte of text.  In order to get good results, you'll have to use a smaller vocabulary or get more data.  Luckly there's more data!  As we mentioned in the begging of this project, this is a subset of <a href="https://www.kaggle.com/wcukierski/the-simpsons-by-the-data">another dataset</a>.  We didn't have you train on all the data, because that would take too long.  However, you are free to train your neural network on all the data.  After you complete the project, of course.</p>
 <h1 id="Submitting-This-Project">Submitting This Project<a class="anchor-link" href="#Submitting-This-Project">&#182;</a></h1><p>When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as "dlnd_tv_script_generation.ipynb" and save it as a HTML file under "File" -&gt; "Download as". Include the "helper.py" and "problem_unittests.py" files in your submission.</p>
 
 </div>
