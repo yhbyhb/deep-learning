@@ -140,3 +140,5 @@ project/image-classification/preprocess_validation.p
 3_recurrent_neural_networks/transfer-learning/codes
 3_recurrent_neural_networks/transfer-learning/labels
 project/tv-script-generation/preprocess.p
+project/language-translation/params.p
+project/language-translation/preprocess.p
