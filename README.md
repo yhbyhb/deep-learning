@@ -1,5 +1,11 @@
-# nd101
+# Deep Learning Nanodegree Foundation
 This repo is for my work of udacity deep learning foundations
+
+[//]: # (Image References)
+
+[result]: ./certificate.svg "Certificate"
+
+![alt text][result]
 
 # Projects
 - Project 1: [Your first neural network](project/first-neural-network)
