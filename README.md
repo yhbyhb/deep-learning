@@ -1,5 +1,5 @@
 # Deep Learning Nanodegree Foundation
-This repo is for my work of udacity deep learning foundations
+This repo is for my work of [udacity deep learning foundations](https://www.udacity.com/course/deep-learning-nanodegree--nd101)
 
 [//]: # (Image References)
 
